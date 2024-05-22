@@ -1,69 +1,57 @@
-# DJS05 Project Brief: Building a Redux-Inspired Store for a Tally App
+# Tally App
 
-In this challenge, you will venture into the realm of state management by constructing a Redux-inspired store to manage the state of a simple Tally App. Your primary goal is to manage the app's state changes efficiently, focusing on core functionalities like incrementing, decrementing, and resetting a counter. Instead of rendering changes on the UI, you'll subscribe to state updates and log them to the console, highlighting the power of state management in applications.
+The project uses Redux to manage the state of the count. It consists of a Redux store, a reducer to handle state changes, and action creators to dispatch the actions. This project demonstrates state management and logging to the console.
 
-## Objective
-Create a minimalistic, Redux-inspired store to manage and log the state of a counting Tally App. Your implementation will not involve UI rendering; instead, it will use console logs to demonstrate state management effectively.
+## File Structure
 
-Observer Pattern resource from Refactoring Guru: https://refactoring.guru/design-patterns/observer
+- `scripts/actions.js`: Defines the actions
+- `scripts/index.js`: Sets up the store, subscribes to state changes, dispatches actions, and logs changes to the console.
+- `reducer.js`: Defines the counterReducer to handle state changes based on dispatched actions.
 
-## User Stories (Gherkin Syntax)
-Your challenge will encompass the following scenarios, tested through your store's implementation:
+## Run
 
-### SCENARIO 1: Initial State Verification
-```
-GIVEN no interactions have been performed yet
-WHEN the “getState” method is run
-AND the result is logged to the console
-AND the browser console is open
-THEN the state should show a count of 0
-```
+1. Install Node.js
+2. Install Live Server extension in VSCode
+3. Navigate to index.html in file tree, right-click and open with Live Server
 
-### SCENARIO 2: Incrementing the Counter
-```
-GIVEN no interactions have been performed yet
-WHEN an “ADD” action is dispatched
-AND another “ADD” action is dispatched
-AND the browser console is open
-THEN the state should show a count of 2
-```
+## Approach
 
-### SCENARIO 3: Decrementing the Counter
-```
-GIVEN the current count in the state is 2
-WHEN a “SUBTRACT” action is dispatched
-AND the browser console is open
-THEN the state should display a count of 1
-```
+Initially I sought out clarification from colleagues and my coach on how to approach this project as it took me a very long time to understand it to begin with.
+Once I had a brief walkthrough with them, to complete this project, I followed along with the video given in the LMS, creating my actions, then my reducer, and finally the store that would apply this logic, ultimately adding a console log as per the project requirements. I adapted the code that was demonstrated from arrow functions to named functions which is a style that I understand better.
 
-### SCENARIO 4: Resetting the Counter
-```
-GIVEN the current count in the state is 1
-WHEN a “RESET” action is dispatched
-AND the browser console is open
-THEN the state should display a count of 0
-```
+## Challenges
 
-## Requirements
-- **Implement a Global Store**: Create a Redux-inspired store that holds the state of the tally counter. The store should have the ability to dispatch actions and subscribe to state changes.
-- **State Management Functions**:
-  - **getState**: Returns the current state.
-  - **dispatch**: Takes an action (e.g., ADD, SUBTRACT, RESET) and updates the state accordingly.
-  - **subscribe**: Accepts a function that gets called whenever the state changes. This function should log the new state to the console.
-- **No UI Rendering**: This challenge focuses on state management without the complexity of UI rendering. All state changes should be observable through console logs.
-- **Functional Programming Principles**: Draw upon functional programming concepts as illustrated in the reference videos. While Redux is the inspiration, you're encouraged to apply these principles creatively in your implementation.
+It took me a while to understand this project at all. I had to watch and re-watch the LMS videos, as well find other resources. Eventually with the guidance of my coach and help from my colleagues, I finally understood what needed to be done.
+The initial setup, understanding the flow of actions, reducers, and store updates all took me some time to grasp. Once I did though, it was fairly straightforward to implement the logic. It just needed to be broken up and understood in blocks of code, as well as understanding how they all worked together.
 
-## Submission Guidelines
-Your submission should consist of a JavaScript file(s) that encapsulate your Redux-inspired store and the logic for dispatching actions and subscribing to changes. Include a README.md file explaining:
-- How to run your code.
-- A brief overview of your approach.
-- Any challenges you faced and how you overcame them.
+## Scenarios
 
-Ensure your code is well-commented and adheres to best practices for readability and maintainability.
+### Scenario 1
 
-## Evaluation Criteria
-- **Correctness**: Your implementation should correctly handle the scenarios as outlined in the user stories.
-- **Code Quality**: Use of functional programming principles, clear naming conventions, and code organization.
-- **Documentation**: Clarity of your approach and reflections in the README.md.
+**GIVEN** no interactions have been performed yet  
+**WHEN** the `getState` method is run  
+**AND** the result is logged to the console  
+**AND** the browser console is open  
+**THEN** the state should show a count of 0
 
-This challenge is an excellent opportunity to demonstrate your understanding of state management concepts and functional programming principles. Good luck!
+### Scenario 2
+
+**GIVEN** no interactions have been performed yet  
+**WHEN** an `ADD` action is dispatched  
+**AND** another `ADD` action is dispatched  
+**AND** the browser console is open  
+**THEN** the state should show a count of 2
+
+### Scenario 3
+
+**GIVEN** the current count in the state is 2  
+**WHEN** a `SUBTRACT` action is dispatched  
+**AND** the browser console is open  
+**THEN** the state should display a count of 1
+
+### Scenario 4
+
+**GIVEN** the current count in the state is 1  
+**WHEN** a `RESET` action is dispatched  
+**AND** the browser console is open  
+**THEN** the state should display a count of 0
