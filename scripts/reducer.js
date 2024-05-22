@@ -1,4 +1,6 @@
-const counterReducer = function (state = { count: 0 }, action) {
+const initialState = { count: 0 };
+
+const counterReducer = function (state = initialState, action) {
   switch (action.type) {
     case "ADD":
       return { ...state, count: state.count + 1 };
