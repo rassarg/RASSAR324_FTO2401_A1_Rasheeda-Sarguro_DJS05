@@ -21,11 +21,11 @@ const createStore = function (reducer, initialState) {
     });
   };
 
-  // Subscribe to state changes
+  // Subscribe to state changes, adding to listener array
   const subscribe = function (listener) {
     listeners.push(listener);
 
-    // Unsubscribing from state changes
+    // Return a function to unsubscribe from state changes, removing from listener array
     const unsubscribe = function () {
       const index = listeners.indexOf(listener);
       listeners.splice(index, 1);
@@ -43,7 +43,7 @@ const createStore = function (reducer, initialState) {
 // Create store with the counterReducer and initial state
 const store = createStore(counterReducer, initialState);
 
-// Subscribe to state changes
+// Subscribe to state changes and log them to the console
 store.subscribe(function () {
   console.log("State updated:", store.getState());
 });
